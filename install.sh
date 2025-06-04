@@ -9,7 +9,6 @@ docker compose pull
 docker compose run --rm freqtrade create-userdir --userdir user_data
 docker compose run --rm freqtrade new-config --config user_data/config.json
 docker compose up -d
-docker compose logs -f
 netstat -nlp
 apt install net-tools
 netstat -nlp
@@ -25,3 +24,4 @@ firewall-cmd --permanent --zone=public --add-port=8082/tcp
 firewall-cmd --reload
 firewall-cmd --zone=public --list-ports
 netstat -nlp
+docker compose logs -f
