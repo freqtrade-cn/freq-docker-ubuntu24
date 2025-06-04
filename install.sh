@@ -24,4 +24,3 @@ firewall-cmd --permanent --zone=public --add-port=8082/tcp
 firewall-cmd --reload
 firewall-cmd --zone=public --list-ports
 netstat -nlp
-docker compose logs -f
