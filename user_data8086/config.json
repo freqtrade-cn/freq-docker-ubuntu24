@@ -1,4 +1,3 @@
-
 {
     "$schema": "https://schema.freqtrade.io/schema.json",
     "max_open_trades": 30,
@@ -27,7 +26,7 @@
             "bids_to_ask_delta": 1
         }
     },
-    "exit_pricing":{
+    "exit_pricing": {
         "price_side": "same",
         "use_order_book": true,
         "order_book_top": 1
@@ -38,10 +37,8 @@
         "secret": "",
         "ccxt_config": {},
         "ccxt_async_config": {},
-        "pair_whitelist": [
-        ],
-        "pair_blacklist": [
-        ]
+        "pair_whitelist": [],
+        "pair_blacklist": []
     },
     "pairlists": [
         {
@@ -60,7 +57,7 @@
     "api_server": {
         "enabled": true,
         "listen_ip_address": "0.0.0.0",
-        "listen_port": 8080,
+        "listen_port": 8086,
         "verbosity": "error",
         "enable_openapi": false,
         "jwt_secret_key": "38d6f3451f8e7727158f81165b63b89db89b7385d062bb521c38008aaafe3392",
