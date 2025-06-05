@@ -1,17 +1,17 @@
 
 ---
 services:
-  freqtrade8080:
+  freqtrade8087:
     image: freqtradeorg/freqtrade:stable
     restart: unless-stopped
-    container_name: freqtrade8080
+    container_name: freqtrade8087
     volumes:
-      - "./user_data8080:/freqtrade/user_data"
+      - "./user_data8087:/freqtrade/user_data"
     # Expose api on port 8080 (localhost only)
     # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
     # for more information.
     ports:
-      - "0.0.0.0:8080:8080"
+      - "0.0.0.0:8087:8080"
     # Default command used when running `docker compose up`
     command: >
       trade

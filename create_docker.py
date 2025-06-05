@@ -1,5 +1,5 @@
-def create_docker_compose(config: dict):
-    template = """
+def create_docker_compose(config):
+    base_template = """
 ---
 services:
   freqtrade{port}:
@@ -22,13 +22,27 @@ services:
       --strategy {strategy} 
 """
     for c in config:
-        template = template.format(port=c['port'], strategy=c['strategy'])
+        template = base_template.format(port=c['port'], strategy=c['strategy'])
         with open(f"docker-compose-{c['port']}.yml", "w") as f:
             f.write(template)
+            
+def copy_user_data(config):
+    import shutil
+    import os
+    
+    for c in config:
+        port = c['port']
+        src = "user_data"
+        dst = f"user_data{port}"
+        
+        # Create destination if it doesn't exist
+        if not os.path.exists(dst):
+            # Copy the entire user_data directory
+            shutil.copytree(src, dst)
 
 
 if __name__ == "__main__":
-    create_docker_compose([
+    config = [
         {
             "port": 8080,
             "strategy": "SampleStrategy"
@@ -66,4 +80,7 @@ if __name__ == "__main__":
             "port": 8087,
             "strategy": "SampleStrategy"
         }
-    ])
+    ]
+    
+    create_docker_compose(config)
+    copy_user_data(config)
